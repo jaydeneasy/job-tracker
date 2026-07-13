@@ -1,53 +1,40 @@
 "use client";
 
-import { useState } from "react";
-import { Radar } from "lucide-react";
+import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
+import { ListContainer } from "@/components/ui/ListContainer";
 import { RadarCard } from "./RadarCard";
 import type { RadarJob } from "@/data/types";
 
 interface JobRadarProps {
   jobs: RadarJob[];
+  onSave: (job: RadarJob) => void;
+  onDismiss: (id: string) => void;
 }
 
-export function JobRadar({ jobs: initialJobs }: JobRadarProps) {
-  const [jobs, setJobs] = useState(initialJobs);
-
-  function handleSave(id: string) {
-    console.log("[Job Radar] Save to tracker:", id);
-    setJobs((prev) => prev.filter((j) => j.id !== id));
-  }
-
-  function handleDismiss(id: string) {
-    console.log("[Job Radar] Dismiss:", id);
-    setJobs((prev) => prev.filter((j) => j.id !== id));
-  }
-
+export function JobRadar({ jobs, onSave, onDismiss }: JobRadarProps) {
   return (
     <div className="flex flex-col gap-3">
       <div className="flex items-center gap-2">
-        <div className="text-[10px] font-semibold tracking-widest text-[#7a7a90] uppercase">
-          Job Radar
-        </div>
-        <Radar size={12} className="text-[#7a7a90]" />
-        <span className="text-[10px] text-[#7a7a90]">— postings not yet acted on</span>
+        <SectionEyebrow label="New postings" />
+        <span className="text-[10px] text-muted">— not yet applied</span>
       </div>
 
-      <div className="divide-y divide-[#ececf1] rounded-xl border border-[#e6e6ec] bg-[#ffffff] overflow-hidden">
+      <ListContainer>
         {jobs.length === 0 ? (
-          <div className="px-4 py-6 text-center text-sm text-[#7a7a90]">
-            Radar is clear
+          <div className="px-4 py-6 text-center text-sm text-muted">
+            No new postings to review
           </div>
         ) : (
           jobs.map((job) => (
             <RadarCard
               key={job.id}
               job={job}
-              onSave={handleSave}
-              onDismiss={handleDismiss}
+              onSave={onSave}
+              onDismiss={onDismiss}
             />
           ))
         )}
-      </div>
+      </ListContainer>
     </div>
   );
 }

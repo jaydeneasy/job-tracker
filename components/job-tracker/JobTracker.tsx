@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { Plus } from "lucide-react";
 import { JobCard } from "./JobCard";
+import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
+import { ListContainer } from "@/components/ui/ListContainer";
 import type { Application, ApplicationStatus } from "@/data/types";
 
 type FilterTab = "all" | ApplicationStatus;
@@ -31,10 +33,12 @@ export function JobTracker({ applications }: JobTrackerProps) {
   return (
     <div className="flex flex-col gap-3">
       <div className="flex items-center justify-between">
-        <div className="text-[10px] font-semibold tracking-widest text-[#7a7a90] uppercase">
-          Job Tracker
-        </div>
-        <button className="flex items-center gap-1 rounded-md bg-[#6366f1]/15 px-2.5 py-1 text-xs font-medium text-[#4f46e5] hover:bg-[#6366f1]/25 transition-colors">
+        <SectionEyebrow label="Job Tracker" />
+        <button
+          disabled
+          title="Adding jobs manually is coming soon"
+          className="flex items-center gap-1 rounded-md bg-accent/10 px-2.5 py-1 text-xs font-medium text-accent-dim opacity-50 cursor-not-allowed"
+        >
           <Plus size={12} />
           Add job
         </button>
@@ -54,14 +58,16 @@ export function JobTracker({ applications }: JobTrackerProps) {
               onClick={() => setActiveTab(tab.key)}
               className={`flex items-center gap-1.5 rounded-md px-2.5 py-1 text-xs font-medium whitespace-nowrap transition-colors ${
                 isActive
-                  ? "bg-[#6366f1]/20 text-[#4f46e5]"
-                  : "text-[#7a7a90] hover:text-[#52526b] hover:bg-[#f4f4f7]"
+                  ? "bg-accent/15 text-accent-dim"
+                  : "text-muted hover:text-secondary hover:bg-surface-raised"
               }`}
             >
               {tab.label}
               <span
                 className={`rounded px-1 py-0.5 text-[10px] leading-none tabular-nums ${
-                  isActive ? "bg-[#6366f1]/30 text-[#4338ca]" : "bg-[#e6e6ec] text-[#7a7a90]"
+                  isActive
+                    ? "bg-accent/25 text-accent-deep"
+                    : "bg-border text-muted"
                 }`}
               >
                 {count}
@@ -71,16 +77,15 @@ export function JobTracker({ applications }: JobTrackerProps) {
         })}
       </div>
 
-      {/* Job list */}
-      <div className="divide-y divide-[#ececf1] rounded-xl border border-[#e6e6ec] bg-[#ffffff] overflow-hidden">
+      <ListContainer>
         {filtered.length === 0 ? (
-          <div className="px-4 py-8 text-center text-sm text-[#7a7a90]">
+          <div className="px-4 py-8 text-center text-sm text-muted">
             No jobs in this category
           </div>
         ) : (
           filtered.map((app) => <JobCard key={app.id} application={app} />)
         )}
-      </div>
+      </ListContainer>
     </div>
   );
 }

@@ -12,28 +12,26 @@ export function ResourceCard({ resource }: ResourceCardProps) {
       href={resource.link}
       target="_blank"
       rel="noopener noreferrer"
-      className="block rounded-lg border border-[#e6e6ec] bg-[#ffffff] px-3 py-3 hover:border-[#d6d6de] hover:bg-[#f4f4f7] transition-all group"
+      className="block rounded-xl border border-border bg-surface px-3 py-3 hover:border-secondary/30 hover:bg-surface-raised transition-all group"
     >
       <div className="flex items-start justify-between gap-2">
         <div className="min-w-0 flex-1">
-          <div className="flex items-center gap-1.5">
-            <span className="text-sm font-medium text-[#16161f] group-hover:text-black transition-colors truncate">
-              {resource.title}
-            </span>
-          </div>
-          <p className="mt-0.5 text-[11px] text-[#7a7a90] line-clamp-1">
+          <span className="text-sm font-medium text-primary group-hover:text-primary transition-colors">
+            {resource.title}
+          </span>
+          <p className="mt-0.5 text-[11px] text-muted line-clamp-1">
             {resource.description}
           </p>
         </div>
         <ExternalLink
-          size={13}
-          className="shrink-0 mt-0.5 text-[#7a7a90] group-hover:text-[#52526b] transition-colors"
+          size={12}
+          className="shrink-0 mt-0.5 text-muted group-hover:text-secondary transition-colors"
         />
       </div>
       <div className="mt-2.5 space-y-1">
         <div className="flex items-center justify-between">
-          <span className="text-[10px] text-[#7a7a90]">Progress</span>
-          <span className="text-[10px] text-[#6366f1] font-medium">
+          <span className="text-[10px] text-muted">Progress</span>
+          <span className="text-[10px] text-accent font-medium">
             {resource.progressPct}%
           </span>
         </div>

@@ -9,6 +9,14 @@ function daysSince(isoDate: string): number {
   return Math.floor((now.getTime() - then.getTime()) / (1000 * 60 * 60 * 24));
 }
 
+const DEPTH_LABELS: Record<number, string> = {
+  1: "acquaintance",
+  2: "friendly contact",
+  3: "strong relationship",
+  4: "advisor",
+  5: "mentor or advocate",
+};
+
 export function computeNextSteps(
   applications: Application[],
   contacts: Contact[],
@@ -24,7 +32,7 @@ export function computeNextSteps(
       steps.push({
         id: `followup-${c.id}`,
         icon: "📨",
-        label: `Follow up with ${c.name} (${c.company})`,
+        label: `Follow up with ${c.name} at ${c.company}`,
         sublabel: c.nextAction,
         priority: days > 14 ? 1 : 2,
         type: "followup",
@@ -38,8 +46,8 @@ export function computeNextSteps(
     steps.push({
       id: `interview-prep-${a.id}`,
       icon: "🎯",
-      label: `Prep for ${a.company} interview`,
-      sublabel: `${a.role} — review PM Training resources`,
+      label: `Prep for your ${a.company} interview`,
+      sublabel: `${a.role} — review your PM Training resources`,
       priority: 1,
       type: "interview_prep",
     });
@@ -57,22 +65,25 @@ export function computeNextSteps(
         steps.push({
           id: `intro-${a.id}-${match.id}`,
           icon: "🤝",
-          label: `Warm up ${match.name} before ${a.company} moves forward`,
-          sublabel: `${match.name} is a depth-${match.depth} contact at ${match.company}`,
+          label: `Reach out to ${match.name} before ${a.company} moves forward`,
+          sublabel: `${match.name} is a ${DEPTH_LABELS[match.depth] ?? "contact"} at ${match.company}`,
           priority: 2,
           type: "company_intro",
         });
       }
     });
 
-  // 4. Cold contact alert: contact has nextAction but no contact in > 21 days
+  // 4. Cold contact alert: contact hasn't been reached in > 21 days
   contacts.forEach((c) => {
     const days = daysSince(c.lastContactDate);
-    if (days > COLD_CONTACT_THRESHOLD_DAYS && !steps.find((s) => s.id === `followup-${c.id}`)) {
+    if (
+      days > COLD_CONTACT_THRESHOLD_DAYS &&
+      !steps.find((s) => s.id === `followup-${c.id}`)
+    ) {
       steps.push({
         id: `cold-${c.id}`,
         icon: "🌡️",
-        label: `Re-engage ${c.name} — ${days} days since last contact`,
+        label: `Re-connect with ${c.name} — ${days} days since last contact`,
         sublabel: c.company,
         priority: 3,
         type: "followup",
@@ -86,13 +97,12 @@ export function computeNextSteps(
     steps.push({
       id: "daily-prep",
       icon: "📚",
-      label: "No training completed today — open PM Training",
-      sublabel: "Pick one item from this week's checklist",
+      label: "No training completed today",
+      sublabel: "Pick one item from this week's checklist in PM Training",
       priority: 4,
       type: "daily_prep",
     });
   }
 
-  // Sort by priority ascending (lower = more urgent)
   return steps.sort((a, b) => a.priority - b.priority);
 }

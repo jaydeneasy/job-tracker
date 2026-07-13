@@ -1,22 +1,30 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg-base: #ffffff;
-  --color-bg-card: #ffffff;
-  --color-bg-card-hover: #f4f4f7;
+  /* Surfaces */
+  --color-surface: #ffffff;
+  --color-surface-raised: #f4f4f7;
+
+  /* Borders */
   --color-border: #e6e6ec;
   --color-border-subtle: #ececf1;
+
+  /* Accent */
   --color-accent: #6366f1;
-  --color-accent-hover: #4f46e5;
-  --color-accent-muted: rgba(99, 102, 241, 0.15);
-  --color-text-primary: #16161f;
-  --color-text-secondary: #52526b;
-  --color-text-muted: #7a7a90;
-  --color-status-new: #ef4444;
-  --color-status-progress: #eab308;
-  --color-status-applied: #3b82f6;
-  --color-status-success: #22c55e;
+  --color-accent-dim: #4f46e5;
+  --color-accent-deep: #4338ca;
+
+  /* Text */
+  --color-primary: #16161f;
+  --color-secondary: #52526b;
+  --color-muted: #7a7a90;
+
+  /* Status — used in JS style objects for dynamic badge colors */
   --color-status-closed: #6b7280;
+  --color-status-applied: #3b82f6;
+  --color-status-progress: #eab308;
+  --color-status-new: #ef4444;
+  --color-status-success: #22c55e;
 }
 
 * {
@@ -25,12 +33,21 @@
 
 html,
 body {
-  background-color: #ffffff;
-  color: #16161f;
+  background-color: var(--color-surface);
+  color: var(--color-primary);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   margin: 0;
   padding: 0;
   min-height: 100vh;
+}
+
+/* Global focus-visible ring — covers all 42 interactive elements at once */
+button:focus-visible,
+a:focus-visible,
+[role="checkbox"]:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 6px;
 }
 
 ::-webkit-scrollbar {
@@ -38,12 +55,12 @@ body {
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #ffffff;
+  background: var(--color-surface);
 }
 ::-webkit-scrollbar-thumb {
-  background: #d6d6de;
+  background: var(--color-border);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #b0b0bc;
+  background: var(--color-secondary);
 }

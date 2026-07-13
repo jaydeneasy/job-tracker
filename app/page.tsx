@@ -6,19 +6,19 @@ import { NextSteps } from "@/components/next-steps/NextSteps";
 
 export default function DashboardPage() {
   return (
-    <div className="min-h-screen bg-[#ffffff]">
+    <div className="min-h-screen bg-surface">
       {/* Top bar */}
-      <header className="sticky top-0 z-10 flex items-center justify-between border-b border-[#e6e6ec] bg-[#ffffff]/95 px-6 py-3 backdrop-blur-sm">
+      <header className="sticky top-0 z-10 flex items-center justify-between border-b border-border bg-surface/95 px-6 py-3 backdrop-blur-sm">
         <div className="flex items-center gap-3">
-          <div className="h-2 w-2 rounded-full bg-[#6366f1]" />
-          <span className="text-sm font-semibold text-[#16161f]">
+          <div className="h-2 w-2 rounded-full bg-accent" />
+          <span className="text-sm font-semibold text-primary">
             PM job search
           </span>
-          <span className="rounded bg-[#e6e6ec] px-2 py-0.5 text-[10px] font-medium text-[#7a7a90] uppercase tracking-wide">
+          <span className="rounded-md bg-surface-raised px-2 py-0.5 text-[10px] font-semibold text-muted uppercase tracking-wide">
             Dashboard
           </span>
         </div>
-        <div className="text-xs text-[#7a7a90]">
+        <div className="text-xs text-muted">
           {new Date().toLocaleDateString("en-US", {
             weekday: "long",
             month: "long",
@@ -29,22 +29,18 @@ export default function DashboardPage() {
 
       {/* 4-column grid */}
       <main className="grid grid-cols-1 gap-4 p-4 md:grid-cols-2 xl:grid-cols-4">
-        {/* Column 1: Home Base */}
         <section className="flex flex-col gap-4">
           <HomeBase />
         </section>
 
-        {/* Column 2: Job Tracker + Job Radar */}
         <section className="flex flex-col gap-4">
           <JobTrackerColumn />
         </section>
 
-        {/* Column 3: PM Training */}
         <section className="flex flex-col gap-4">
           <PMTraining />
         </section>
 
-        {/* Column 4: Contacts + Next Steps */}
         <section className="flex flex-col gap-4">
           <Contacts />
           <NextSteps />

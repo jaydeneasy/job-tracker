@@ -11,14 +11,14 @@ export function WeeklyGoalCard({ goal }: WeeklyGoalProps) {
   return (
     <div className="space-y-2.5">
       <div className="flex items-center justify-between">
-        <span className="text-sm font-medium text-[#16161f]">{goal.label}</span>
-        <span className="text-xs text-[#52526b]">
+        <span className="text-sm font-medium text-primary">{goal.label}</span>
+        <span className="text-xs text-muted">
           {goal.completedThisWeek} of {goal.target} this week
         </span>
       </div>
       <Progress value={pct} />
       <div className="flex justify-end">
-        <span className="text-xs text-[#6366f1] font-medium">{pct}%</span>
+        <span className="text-xs text-accent font-medium">{pct}%</span>
       </div>
     </div>
   );
