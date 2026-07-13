@@ -15,7 +15,7 @@ export function NextStepItem({ step }: NextStepItemProps) {
   const accentColor = TYPE_COLORS[step.type];
 
   return (
-    <div className="flex items-start gap-3 rounded-lg px-3 py-2.5 hover:bg-[#16161e] transition-colors">
+    <div className="flex items-start gap-3 rounded-lg px-3 py-2.5 hover:bg-[#f4f4f7] transition-colors">
       <div
         className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-lg text-sm"
         style={{ backgroundColor: `${accentColor}18` }}
@@ -23,9 +23,9 @@ export function NextStepItem({ step }: NextStepItemProps) {
         {step.icon}
       </div>
       <div className="flex-1 min-w-0">
-        <div className="text-sm text-[#e8e8f0] leading-snug">{step.label}</div>
+        <div className="text-sm text-[#16161f] leading-snug">{step.label}</div>
         {step.sublabel && (
-          <div className="mt-0.5 text-[11px] text-[#55556a] truncate">
+          <div className="mt-0.5 text-[11px] text-[#7a7a90] truncate">
             {step.sublabel}
           </div>
         )}

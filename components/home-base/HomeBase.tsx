@@ -11,7 +11,7 @@ export function HomeBase() {
 
   return (
     <div className="flex flex-col gap-3 h-full">
-      <div className="text-[10px] font-semibold tracking-widest text-[#55556a] uppercase">
+      <div className="text-[10px] font-semibold tracking-widest text-[#7a7a90] uppercase">
         Home Base
       </div>
 
@@ -27,18 +27,18 @@ export function HomeBase() {
             <Bot size={18} className="text-[#6366f1]" />
           </div>
           <div className="flex-1 min-w-0">
-            <div className="text-sm font-medium text-[#e8e8f0] group-hover:text-white transition-colors">
+            <div className="text-sm font-medium text-[#16161f] group-hover:text-black transition-colors">
               Claude AI
             </div>
-            <div className="text-[11px] text-[#55556a]">claude.ai</div>
+            <div className="text-[11px] text-[#7a7a90]">claude.ai</div>
           </div>
-          <ExternalLink size={14} className="text-[#55556a] group-hover:text-[#8888a8] transition-colors shrink-0" />
+          <ExternalLink size={14} className="text-[#7a7a90] group-hover:text-[#52526b] transition-colors shrink-0" />
         </a>
       </Card>
 
       {/* Pipeline stats */}
       <Card>
-        <div className="text-[10px] font-semibold tracking-widest text-[#55556a] uppercase mb-3">
+        <div className="text-[10px] font-semibold tracking-widest text-[#7a7a90] uppercase mb-3">
           Pipeline
         </div>
         <PipelineStats applications={applications} />
@@ -46,7 +46,7 @@ export function HomeBase() {
 
       {/* Weekly goal */}
       <Card>
-        <div className="text-[10px] font-semibold tracking-widest text-[#55556a] uppercase mb-3">
+        <div className="text-[10px] font-semibold tracking-widest text-[#7a7a90] uppercase mb-3">
           Weekly goal
         </div>
         <WeeklyGoalCard goal={goal} />

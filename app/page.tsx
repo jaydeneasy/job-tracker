@@ -6,19 +6,19 @@ import { NextSteps } from "@/components/next-steps/NextSteps";
 
 export default function DashboardPage() {
   return (
-    <div className="min-h-screen bg-[#0a0a0f]">
+    <div className="min-h-screen bg-[#ffffff]">
       {/* Top bar */}
-      <header className="sticky top-0 z-10 flex items-center justify-between border-b border-[#1e1e2a] bg-[#0a0a0f]/95 px-6 py-3 backdrop-blur-sm">
+      <header className="sticky top-0 z-10 flex items-center justify-between border-b border-[#e6e6ec] bg-[#ffffff]/95 px-6 py-3 backdrop-blur-sm">
         <div className="flex items-center gap-3">
           <div className="h-2 w-2 rounded-full bg-[#6366f1]" />
-          <span className="text-sm font-semibold text-[#e8e8f0]">
+          <span className="text-sm font-semibold text-[#16161f]">
             PM job search
           </span>
-          <span className="rounded bg-[#1e1e2a] px-2 py-0.5 text-[10px] font-medium text-[#55556a] uppercase tracking-wide">
+          <span className="rounded bg-[#e6e6ec] px-2 py-0.5 text-[10px] font-medium text-[#7a7a90] uppercase tracking-wide">
             Dashboard
           </span>
         </div>
-        <div className="text-xs text-[#55556a]">
+        <div className="text-xs text-[#7a7a90]">
           {new Date().toLocaleDateString("en-US", {
             weekday: "long",
             month: "long",

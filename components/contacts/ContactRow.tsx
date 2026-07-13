@@ -5,17 +5,17 @@ const DEPTH_CONFIG: Record<
   ContactDepth,
   { label: string; bg: string; text: string }
 > = {
-  1: { label: "Transactional", bg: "rgba(107,114,128,0.15)", text: "#9ca3af" },
-  2: { label: "Cordial", bg: "rgba(107,114,128,0.2)", text: "#d1d5db" },
-  3: { label: "Warm professional", bg: "rgba(99,102,241,0.12)", text: "#a5b4fc" },
-  4: { label: "Advisory", bg: "rgba(99,102,241,0.2)", text: "#818cf8" },
+  1: { label: "Transactional", bg: "rgba(107,114,128,0.15)", text: "#6b7280" },
+  2: { label: "Cordial", bg: "rgba(107,114,128,0.2)", text: "#4b5563" },
+  3: { label: "Warm professional", bg: "rgba(99,102,241,0.12)", text: "#4338ca" },
+  4: { label: "Advisory", bg: "rgba(99,102,241,0.2)", text: "#4f46e5" },
   5: { label: "Mentor / Sponsor", bg: "rgba(99,102,241,0.3)", text: "#6366f1" },
 };
 
 const TONE_CONFIG: Record<ContactTone, { label: string; bg: string; text: string }> = {
-  formal: { label: "Formal", bg: "rgba(107,114,128,0.12)", text: "#9ca3af" },
-  warm: { label: "Warm", bg: "rgba(234,179,8,0.12)", text: "#fbbf24" },
-  casual: { label: "Casual", bg: "rgba(34,197,94,0.12)", text: "#4ade80" },
+  formal: { label: "Formal", bg: "rgba(107,114,128,0.12)", text: "#6b7280" },
+  warm: { label: "Warm", bg: "rgba(234,179,8,0.12)", text: "#a16207" },
+  casual: { label: "Casual", bg: "rgba(34,197,94,0.12)", text: "#15803d" },
 };
 
 function getDaysSince(isoDate: string): number {
@@ -40,13 +40,13 @@ export function ContactRow({ contact }: ContactRowProps) {
   const tone = TONE_CONFIG[contact.tone];
 
   return (
-    <div className="flex flex-col gap-1.5 rounded-lg px-3 py-2.5 hover:bg-[#16161e] transition-colors">
+    <div className="flex flex-col gap-1.5 rounded-lg px-3 py-2.5 hover:bg-[#f4f4f7] transition-colors">
       <div className="flex items-start justify-between gap-2">
         <div className="min-w-0 flex-1">
-          <div className="text-sm font-medium text-[#e8e8f0] truncate">
+          <div className="text-sm font-medium text-[#16161f] truncate">
             {contact.name}
           </div>
-          <div className="text-[11px] text-[#55556a] truncate">{contact.company}</div>
+          <div className="text-[11px] text-[#7a7a90] truncate">{contact.company}</div>
         </div>
         <div className="flex items-center gap-1 shrink-0 flex-wrap justify-end">
           <Badge style={{ backgroundColor: depth.bg, color: depth.text }}>
@@ -57,7 +57,7 @@ export function ContactRow({ contact }: ContactRowProps) {
           </Badge>
         </div>
       </div>
-      <div className="text-[11px] text-[#55556a] italic">{getStatusLine(contact)}</div>
+      <div className="text-[11px] text-[#7a7a90] italic">{getStatusLine(contact)}</div>
     </div>
   );
 }

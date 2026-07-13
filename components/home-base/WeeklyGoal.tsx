@@ -11,8 +11,8 @@ export function WeeklyGoalCard({ goal }: WeeklyGoalProps) {
   return (
     <div className="space-y-2.5">
       <div className="flex items-center justify-between">
-        <span className="text-sm font-medium text-[#e8e8f0]">{goal.label}</span>
-        <span className="text-xs text-[#8888a8]">
+        <span className="text-sm font-medium text-[#16161f]">{goal.label}</span>
+        <span className="text-xs text-[#52526b]">
           {goal.completedThisWeek} of {goal.target} this week
         </span>
       </div>

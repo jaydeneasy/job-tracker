@@ -31,10 +31,10 @@ export function JobTracker({ applications }: JobTrackerProps) {
   return (
     <div className="flex flex-col gap-3">
       <div className="flex items-center justify-between">
-        <div className="text-[10px] font-semibold tracking-widest text-[#55556a] uppercase">
+        <div className="text-[10px] font-semibold tracking-widest text-[#7a7a90] uppercase">
           Job Tracker
         </div>
-        <button className="flex items-center gap-1 rounded-md bg-[#6366f1]/15 px-2.5 py-1 text-xs font-medium text-[#818cf8] hover:bg-[#6366f1]/25 transition-colors">
+        <button className="flex items-center gap-1 rounded-md bg-[#6366f1]/15 px-2.5 py-1 text-xs font-medium text-[#4f46e5] hover:bg-[#6366f1]/25 transition-colors">
           <Plus size={12} />
           Add job
         </button>
@@ -54,14 +54,14 @@ export function JobTracker({ applications }: JobTrackerProps) {
               onClick={() => setActiveTab(tab.key)}
               className={`flex items-center gap-1.5 rounded-md px-2.5 py-1 text-xs font-medium whitespace-nowrap transition-colors ${
                 isActive
-                  ? "bg-[#6366f1]/20 text-[#818cf8]"
-                  : "text-[#55556a] hover:text-[#8888a8] hover:bg-[#16161e]"
+                  ? "bg-[#6366f1]/20 text-[#4f46e5]"
+                  : "text-[#7a7a90] hover:text-[#52526b] hover:bg-[#f4f4f7]"
               }`}
             >
               {tab.label}
               <span
                 className={`rounded px-1 py-0.5 text-[10px] leading-none tabular-nums ${
-                  isActive ? "bg-[#6366f1]/30 text-[#a5b4fc]" : "bg-[#1e1e2a] text-[#55556a]"
+                  isActive ? "bg-[#6366f1]/30 text-[#4338ca]" : "bg-[#e6e6ec] text-[#7a7a90]"
                 }`}
               >
                 {count}
@@ -72,9 +72,9 @@ export function JobTracker({ applications }: JobTrackerProps) {
       </div>
 
       {/* Job list */}
-      <div className="divide-y divide-[#1a1a26] rounded-xl border border-[#1e1e2a] bg-[#111117] overflow-hidden">
+      <div className="divide-y divide-[#ececf1] rounded-xl border border-[#e6e6ec] bg-[#ffffff] overflow-hidden">
         {filtered.length === 0 ? (
-          <div className="px-4 py-8 text-center text-sm text-[#55556a]">
+          <div className="px-4 py-8 text-center text-sm text-[#7a7a90]">
             No jobs in this category
           </div>
         ) : (

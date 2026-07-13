@@ -12,7 +12,7 @@ export function Progress({ value, className }: ProgressProps) {
   return (
     <div
       className={cn(
-        "relative h-1.5 w-full overflow-hidden rounded-full bg-[#1e1e2a]",
+        "relative h-1.5 w-full overflow-hidden rounded-full bg-[#e6e6ec]",
         className
       )}
     >

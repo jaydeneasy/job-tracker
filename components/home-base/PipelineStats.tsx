@@ -41,9 +41,9 @@ export function PipelineStats({ applications }: PipelineStatsProps) {
       {STAT_ROWS.map((row) => (
         <div
           key={row.key}
-          className="flex items-center justify-between rounded-lg px-3 py-2.5 hover:bg-[#16161e] transition-colors"
+          className="flex items-center justify-between rounded-lg px-3 py-2.5 hover:bg-[#f4f4f7] transition-colors"
         >
-          <span className="text-sm text-[#8888a8]">{row.label}</span>
+          <span className="text-sm text-[#52526b]">{row.label}</span>
           <span
             className="text-xl font-semibold tabular-nums"
             style={{ color: row.color }}

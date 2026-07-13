@@ -10,10 +10,10 @@ export function PMTraining() {
   return (
     <div className="flex flex-col gap-3">
       <div className="flex items-center justify-between">
-        <div className="text-[10px] font-semibold tracking-widest text-[#55556a] uppercase">
+        <div className="text-[10px] font-semibold tracking-widest text-[#7a7a90] uppercase">
           PM Training
         </div>
-        <button className="flex items-center gap-1 rounded-md bg-[#6366f1]/15 px-2.5 py-1 text-xs font-medium text-[#818cf8] hover:bg-[#6366f1]/25 transition-colors">
+        <button className="flex items-center gap-1 rounded-md bg-[#6366f1]/15 px-2.5 py-1 text-xs font-medium text-[#4f46e5] hover:bg-[#6366f1]/25 transition-colors">
           <Plus size={12} />
           Add link
         </button>
@@ -27,8 +27,8 @@ export function PMTraining() {
       </div>
 
       {/* Weekly checklist */}
-      <div className="rounded-xl border border-[#1e1e2a] bg-[#111117] p-3">
-        <div className="text-[10px] font-semibold tracking-widest text-[#55556a] uppercase mb-2">
+      <div className="rounded-xl border border-[#e6e6ec] bg-[#ffffff] p-3">
+        <div className="text-[10px] font-semibold tracking-widest text-[#7a7a90] uppercase mb-2">
           This week
         </div>
         <WeeklyChecklist items={checklist} />

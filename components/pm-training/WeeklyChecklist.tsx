@@ -25,13 +25,13 @@ export function WeeklyChecklist({ items: initialItems }: WeeklyChecklistProps) {
         <button
           key={item.id}
           onClick={() => toggle(item.id)}
-          className="flex w-full items-center gap-2.5 rounded-lg px-2 py-2 text-left hover:bg-[#16161e] transition-colors group"
+          className="flex w-full items-center gap-2.5 rounded-lg px-2 py-2 text-left hover:bg-[#f4f4f7] transition-colors group"
         >
           <div
             className={`flex h-4 w-4 shrink-0 items-center justify-center rounded border transition-colors ${
               item.done
                 ? "border-[#6366f1] bg-[#6366f1]"
-                : "border-[#2a2a3a] bg-transparent group-hover:border-[#3a3a4a]"
+                : "border-[#d6d6de] bg-transparent group-hover:border-[#b0b0bc]"
             }`}
           >
             {item.done && <Check size={10} className="text-white" strokeWidth={3} />}
@@ -39,8 +39,8 @@ export function WeeklyChecklist({ items: initialItems }: WeeklyChecklistProps) {
           <span
             className={`text-sm transition-colors ${
               item.done
-                ? "line-through text-[#55556a]"
-                : "text-[#8888a8] group-hover:text-[#e8e8f0]"
+                ? "line-through text-[#7a7a90]"
+                : "text-[#52526b] group-hover:text-[#16161f]"
             }`}
           >
             {item.label}

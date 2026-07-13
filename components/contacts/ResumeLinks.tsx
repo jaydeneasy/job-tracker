@@ -14,15 +14,15 @@ export function ResumeLinks({ links }: ResumeLinksProps) {
           href={link.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2.5 rounded-lg px-2 py-2 hover:bg-[#16161e] transition-colors group"
+          className="flex items-center gap-2.5 rounded-lg px-2 py-2 hover:bg-[#f4f4f7] transition-colors group"
         >
-          <FileText size={13} className="text-[#55556a] shrink-0" />
-          <span className="flex-1 text-sm text-[#8888a8] group-hover:text-[#e8e8f0] transition-colors truncate">
+          <FileText size={13} className="text-[#7a7a90] shrink-0" />
+          <span className="flex-1 text-sm text-[#52526b] group-hover:text-[#16161f] transition-colors truncate">
             {link.label}
           </span>
           <ExternalLink
             size={11}
-            className="text-[#55556a] opacity-0 group-hover:opacity-100 transition-opacity shrink-0"
+            className="text-[#7a7a90] opacity-0 group-hover:opacity-100 transition-opacity shrink-0"
           />
         </a>
       ))}
