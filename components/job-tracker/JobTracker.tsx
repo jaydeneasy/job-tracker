@@ -7,7 +7,7 @@ import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
 import { ListContainer } from "@/components/ui/ListContainer";
 import type { Application, ApplicationStatus } from "@/data/types";
 
-const JOB_TRACKER_SHEET_URL = ""; // paste your Job Tracker sheet URL here when ready
+const JOB_TRACKER_SHEET_URL = "https://docs.google.com/spreadsheets/d/1OazmH3t8sEz-5C8CzEle8yyXOSmnL0y2SdB7MpmCV7k/edit?usp=sharing";
 
 type FilterTab = "all" | ApplicationStatus;
 
