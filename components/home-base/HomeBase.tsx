@@ -16,11 +16,11 @@ export function HomeBase() {
       <SectionEyebrow label="Home Base" />
 
       <LinkCard
-        href="https://claude.ai"
+        href="https://claude.ai/share/2e505bf4-a7cc-45fc-98a3-6a6d1ec48420"
         icon={<Bot size={16} className="text-accent" />}
         iconBg="bg-accent/10"
         title="Claude AI"
-        subtitle="claude.ai"
+        subtitle="Open your job search conversation"
       />
 
       {/* Application summary */}

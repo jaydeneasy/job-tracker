@@ -1,11 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { Plus } from "lucide-react";
+import { Plus, ExternalLink } from "lucide-react";
 import { JobCard } from "./JobCard";
 import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
 import { ListContainer } from "@/components/ui/ListContainer";
 import type { Application, ApplicationStatus } from "@/data/types";
+
+const JOB_TRACKER_SHEET_URL = ""; // paste your Job Tracker sheet URL here when ready
 
 type FilterTab = "all" | ApplicationStatus;
 
@@ -32,16 +34,30 @@ export function JobTracker({ applications }: JobTrackerProps) {
 
   return (
     <div className="flex flex-col gap-3">
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between gap-2">
         <SectionEyebrow label="Job Tracker" />
-        <button
-          disabled
-          title="Adding jobs manually is coming soon"
-          className="flex items-center gap-1 rounded-md bg-accent/10 px-2.5 py-1 text-xs font-medium text-accent-dim opacity-50 cursor-not-allowed"
-        >
-          <Plus size={12} />
-          Add job
-        </button>
+        <div className="flex items-center gap-2">
+          {JOB_TRACKER_SHEET_URL ? (
+            <a
+              href={JOB_TRACKER_SHEET_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 rounded-md px-2 py-1 text-[11px] font-medium text-muted hover:text-secondary hover:bg-surface-raised transition-colors"
+              title="Open Job Tracker sheet"
+            >
+              <ExternalLink size={11} />
+              Sheet
+            </a>
+          ) : null}
+          <button
+            disabled
+            title="Adding jobs manually is coming soon"
+            className="flex items-center gap-1 rounded-md bg-accent/10 px-2.5 py-1 text-xs font-medium text-accent-dim opacity-50 cursor-not-allowed"
+          >
+            <Plus size={12} />
+            Add job
+          </button>
+        </div>
       </div>
 
       {/* Filter tabs */}

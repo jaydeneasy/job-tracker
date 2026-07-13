@@ -15,14 +15,13 @@ export function Contacts() {
     <div className="flex flex-col gap-3">
       <SectionEyebrow label="Contacts" />
 
-      {/* Network sheet — disabled until Google Sheets is connected */}
+      {/* Network sheet — live link to the real Google Sheet */}
       <LinkCard
-        href="#"
+        href="https://docs.google.com/spreadsheets/d/1fWCvqOXlPb0-VSCIfsgwMDvo4aBGwu4MmMppI_2gvLg/edit?gid=662369060#gid=662369060"
         icon={<Sheet size={16} className="text-status-success" />}
         iconBg="bg-status-success/10"
         title="PM network sheet"
-        subtitle="Connect Google Sheets to load contacts"
-        disabled
+        subtitle="Open full contacts in Google Sheets"
       />
 
       <ListContainer>
